@@ -7,6 +7,15 @@
     :entreprise='application.entreprise'
     :poste='application.poste'
     />
+    <v-btn 
+    v-if='applicationList.length == 0'
+    color='blue'
+    dark
+    x-large
+    to='/newspontaneousapplication'
+    >
+      Ajoutez une Candidature Spontanée
+    </v-btn>
   </div>
 </template>
 
@@ -31,6 +40,11 @@
 <style lang="scss" scoped>
   div .v-card{
     margin: 10px;
+  }
+
+  .v-btn {
+    margin: auto;
+    margin-top: 30vh;
   }
 
 </style>
