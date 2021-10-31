@@ -47,11 +47,13 @@ const IDBopen = (state, operationType, payload) => {
 
       getAll.onsuccess = () => {
         const listOfSpontaneousApplication = []
-        getAll.result
-          .map((sponApp) => new SponAppConstructor(sponApp))
-          .forEach((sponApp) => {
-            listOfSpontaneousApplication.push(sponApp)
-          })
+        if (getAll.result.length > 0) {
+          getAll.result
+            .map((sponApp) => new SponAppConstructor(sponApp))
+            .forEach((sponApp) => {
+              listOfSpontaneousApplication.push(sponApp)
+            })
+        }
         state.commit('updateList', listOfSpontaneousApplication)
       }
       getAll.onerror = () => {
@@ -63,7 +65,7 @@ const IDBopen = (state, operationType, payload) => {
       const deleteInDB = spontaneousApplications.delete(payload)
 
       deleteInDB.onsuccess = () => {
-        state.commit('updateList', deleteInDB.result)
+        state.dispatch('getFromDB')
       }
       deleteInDB.onerror = () => {
         console.log('erreur : ' + deleteInDB.error)
