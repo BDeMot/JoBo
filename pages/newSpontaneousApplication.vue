@@ -192,7 +192,7 @@
         if (!this.$v.$invalid) {
           this.disabled = false
         } else {
-          this.disaabled = true
+          this.disabled = true
         }
 
       },
