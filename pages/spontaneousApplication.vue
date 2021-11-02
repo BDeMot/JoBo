@@ -12,6 +12,7 @@
     color='blue'
     dark
     x-large
+    ripple
     to='/newspontaneousapplication'
     >
       Ajoutez une Candidature Spontanée
