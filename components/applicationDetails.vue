@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-dialog
-      dialog
+      v-model='dialog'
       max-width="600px"
     >
       <template v-slot:activator="{ on, attrs }">
@@ -106,16 +106,16 @@
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
-            color="blue darken-1"
             text
+            @click='dialog = false'
           >
-            Close
+            Fermer
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
           >
-            Save
+            Enregistrer
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -127,15 +127,10 @@
 
   export default {
     name: 'ApplicationDetails',
-    props: {
-      dialog:{
-        default: true,
-        type: Boolean
-      }
-    },
     data() {
       return {
-        spontaneousApplicationDetails : {}
+        spontaneousApplicationDetails : {},
+        dialog: false
         
       }
     },
