@@ -19,7 +19,7 @@
   <v-card-actions>
   </v-card-actions>
     <application-details key=""
-      :dialog="dialog"
+
     />
   </v-card>
 
@@ -48,11 +48,6 @@
         type: String
       }
 
-    },
-    data () {
-      return {
-        dialog: true
-      }
     }
   }
 </script>
