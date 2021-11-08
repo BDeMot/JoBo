@@ -1,14 +1,42 @@
 <template>
 <div>
-  <div id='export' class="d-flex justify-space-between">
-    <v-btn
-    @click='download'>
-      Exporter BDD au format .json
-    </v-btn>
-    <v-btn
-    disabled>
-      Importer fichier .json
-    </v-btn>
+  <div id='export' class='float-right'>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+            color="primary"
+            dark
+            v-bind="attrs"
+            v-on="on"
+            >
+            <v-icon>
+              mdi-menu
+            </v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-if='!applicationList.length == 0' link>
+              <v-list-item-title @click='download'>
+                  <v-icon>
+                    mdi-download
+                  </v-icon>
+                Exporter BDD au format .json
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item link>
+              <v-list-item-title @change='upload'>
+                <label for="file-upload" class="custom-file-upload">
+                  <v-icon>
+                  mdi-upload
+                  </v-icon>
+                    Importer BDD au format .json
+                </label>
+                <input id="file-upload" type="file" accept='.json'/>
+              </v-list-item-title>
+            </v-list-item>
+      </v-list>
+    </v-menu>
+
   </div>
 
   <div class='d-flex justify-space-between flex-wrap'>
@@ -60,6 +88,25 @@
         linkElement.setAttribute('href', fileURL)
         linkElement.setAttribute('download', `canspo_save${new Date().toISOString().split('.')[0]}`)
         linkElement.click()
+      },
+      upload (event) {
+        const reader = new FileReader()
+        reader.addEventListener('loadend', () => {
+          const importedDB = JSON.parse(reader.result)
+
+          const underscoreRemover = x => x.split('_')[1]  // TODO : please, fix this nasty thingy thing from deeper hell
+
+          importedDB.forEach(sponApp => {                 // this 
+            Object.keys(sponApp).forEach(key => {         //
+              const val = sponApp[key]                    //
+              delete sponApp[key]                         //
+              sponApp[underscoreRemover(key)] = val       //
+            })
+            this.$store.dispatch('addToDB', sponApp)
+          })
+        })
+        reader.readAsText(event.target.files[0])
+
       }
     }
   }
@@ -76,6 +123,14 @@
 
   #export{
     margin-bottom: 10vh;
+  }
+
+  #file-upload{
+    display: none;
+  }
+
+  .custom-file-upload{
+    cursor: pointer;
   }
 
 </style>
