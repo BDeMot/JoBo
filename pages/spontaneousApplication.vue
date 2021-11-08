@@ -48,6 +48,7 @@
     :poste='application.poste'
     />
     <v-btn 
+    class='addNewSponApp'
     v-if='applicationList.length == 0'
     color='blue'
     dark
@@ -131,6 +132,13 @@
 
   .custom-file-upload{
     cursor: pointer;
+  }
+
+  .addNewSponApp{
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
 </style>
