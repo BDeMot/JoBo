@@ -30,6 +30,7 @@
                   label="Date"
                   required
                   :value='spontaneousApplicationDetails.date'
+                  readonly
                 ></v-text-field>
               </v-col>
               <v-col
@@ -39,8 +40,8 @@
               >
                 <v-text-field
                   label="Entreprise"
-                  hint="example of helper text only on focus"
                   :value="spontaneousApplicationDetails.entreprise"
+                  readonly
                 > </v-text-field>
               </v-col>
               <v-col
@@ -50,8 +51,8 @@
               >
                 <v-text-field
                   label="Poste"
-                  hint="example of persistent helper text"
                   :value='spontaneousApplicationDetails.poste'
+                  readonly
                 ></v-text-field>
               </v-col>
               <v-col
@@ -63,6 +64,7 @@
                   label="Contact"
                   required
                   :value='spontaneousApplicationDetails.contact'
+                  readonly
                 ></v-text-field>
               </v-col>
               <v-col
@@ -72,8 +74,8 @@
               >
                 <v-text-field
                   label="Email"
-                  hint="example of helper text only on focus"
                   :value='spontaneousApplicationDetails.email'
+                  readonly
                 ></v-text-field>
               </v-col>
               <v-col
@@ -83,14 +85,15 @@
               >
                 <v-text-field
                   label="Numéro de téléphone"
-                  hint="example of persistent helper text"
                   :value='spontaneousApplicationDetails.telephon'
+                  readonly
                 ></v-text-field>
               </v-col>
               <v-textarea
                 filled
                 auto-grows
                 :value='spontaneousApplicationDetails.coverLetter'
+                readonly
               >
     </v-textarea>
             </v-row>
@@ -111,12 +114,13 @@
           >
             Fermer
           </v-btn>
-          <v-btn
+          <!-- <v-btn
             color="blue darken-1"
             text
+            @click='updateInDB'
           >
             Enregistrer
-          </v-btn>
+          </v-btn> -->
         </v-card-actions>
       </v-card>
     </v-dialog>
