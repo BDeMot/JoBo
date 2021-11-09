@@ -66,11 +66,11 @@ export default {
       isDarkMode: false,
       fixed: false,
       items: [
-        {
-          icon: 'mdi-home',
-          title: 'Accueil',
-          to: '/'
-        },
+        // {
+        //   icon: 'mdi-home',
+        //   title: 'Accueil',
+        //   to: '/'
+        // },
         {
           icon: 'mdi-note-multiple',
           title: 'Candidatures spontanées',
