@@ -28,18 +28,22 @@
       clipped-left
       fixed
       app
-      class='d-flex justify-space-between align-baseline'
     >
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title v-text="title"  />
       <v-toolbar-items>
-        <v-container fluid>
+        <v-container class='d-flex align-start' fluid>
+          <v-icon>
+            mdi-white-balance-sunny
+          </v-icon>
           <v-switch
             v-model="isDarkMode"
             @change="changeMode"
           ></v-switch>
+          <v-icon>
+            mdi-moon-waning-crescent
+          </v-icon>
         </v-container>
       </v-toolbar-items>
-      <v-spacer />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -93,3 +97,12 @@ export default {
   }
 }
 </script>
+
+<style lang='scss'>
+  .v-toolbar__content{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+  }
+</style>
