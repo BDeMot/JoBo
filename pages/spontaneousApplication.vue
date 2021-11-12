@@ -119,6 +119,7 @@
 <style lang="scss" scoped>
   div .v-card{
     margin: 10px;
+    margin-top: 50px;
   } 
   
   v-btn {
