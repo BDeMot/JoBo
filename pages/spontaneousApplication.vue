@@ -48,15 +48,18 @@
     :poste='application.poste'
     />
     <v-btn 
-    class='addNewSponApp'
     v-if='applicationList.length == 0'
+    class='addNewSponApp'
     color='blue'
     dark
     x-large
     ripple
     to='/newspontaneousapplication'
     >
-      Ajoutez une Candidature Spontanée
+    <v-icon>
+      mdi-plus
+    </v-icon>
+      Candidature Spontanée
     </v-btn>
   </div>
   </div>

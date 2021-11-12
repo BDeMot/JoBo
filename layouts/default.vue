@@ -2,9 +2,9 @@
   <v-app dark>
     <v-navigation-drawer
       clipped
+      permanent
       fixed
       app
-      permanent
       expand-on-hover
     >
       <v-list>
@@ -51,7 +51,7 @@
       </v-container>
     </v-main>
     <v-footer
-      :absolute="!fixed"
+      fixed
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -64,7 +64,6 @@ export default {
   data () {
     return {
       isDarkMode: false,
-      fixed: false,
       items: [
         // {
         //   icon: 'mdi-home',
