@@ -98,10 +98,10 @@
       :disabled="disabled"
       @click="submit"
     >
-      submit
+      envoyer
     </v-btn>
     <v-btn @click="clear">
-      clear
+      effacer
     </v-btn>
     <v-snackbar
       :timeout="3000"
