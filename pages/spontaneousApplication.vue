@@ -39,7 +39,7 @@
 
   </div>
 
-  <div class='d-flex justify-space-between flex-wrap'>
+  <div class='d-flex justify-space-around flex-wrap'>
     <application-card
     v-for='(application) in applicationList'
     :key='application.id' 
@@ -47,6 +47,7 @@
     :entreprise='application.entreprise'
     :poste='application.poste'
     />
+
     <v-btn 
     v-if='applicationList.length == 0'
     class='addNewSponApp'
