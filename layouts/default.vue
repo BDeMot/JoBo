@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      stateless="true"
+      stateless
       clipped
       permanent
       fixed
