@@ -1,8 +1,7 @@
 <template>
   <v-card
       class="mx-auto"
-      max-width="344"
-      min-width="290"
+      width='250px'
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -17,10 +16,10 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+    
+    <application-details :key='key' />
 
-    <application-details key=""
 
-    />
   </v-card>
 
 
@@ -36,18 +35,23 @@
     },
     props: {
       date: {
-        default: "", // TODO: verify this is correct
+        default: "",
         type: String
       },
       entreprise: {
-        default: "", // TODO: verify this is correct
+        default: "",
         type: String
       },
       poste: {
-        default: "", // TODO: verify this is correct
+        default: "",
         type: String
       }
 
+    },
+    computed:{
+      key() {
+        return this.$vnode.key
+      }
     }
   }
 </script>
