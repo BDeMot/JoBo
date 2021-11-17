@@ -144,8 +144,9 @@
     },
     methods: {
       deleteThis() {
-        this.$store.dispatch('deleteInDB', this.$parent.$parent.$vnode.key)
-
+        if (window.confirm("Êtes-vous sûr de vouloir supprimer cette candidature spontanée ?")) {
+          this.$store.dispatch('deleteInDB', this.$parent.$parent.$vnode.key) 
+        }
       }
     }
   }
