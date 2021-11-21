@@ -30,7 +30,9 @@
       fixed
       app
     >
-      <v-toolbar-title v-text="title"  />
+      <nuxt-link to='/'>
+        <v-toolbar-title v-text="title" />
+      </nuxt-link>
       <v-toolbar-items>
         <v-container class='d-flex align-start' fluid>
           <v-icon>
@@ -66,11 +68,6 @@ export default {
     return {
       isDarkMode: false,
       items: [
-        // {
-        //   icon: 'mdi-home',
-        //   title: 'Accueil',
-        //   to: '/'
-        // },
         {
           icon: 'mdi-note-multiple',
           title: 'Candidatures spontanées',
@@ -104,5 +101,9 @@ export default {
     align-items: baseline;
     justify-content: space-between;
 
+  }
+
+  .v-toolbar__title{
+    text-decoration: none;
   }
 </style>
